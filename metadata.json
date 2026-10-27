@@ -1,0 +1,6 @@
+{
+  "name": "Tidemark | National Blue Economy Observatory",
+  "description": "National marine resources, fisheries, coastal industries, and blue economy monitoring platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
