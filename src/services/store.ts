@@ -189,8 +189,8 @@ export const useAppStore = create<AppState>((set, get) => ({
     {
       id: 'msg-welcome',
       role: 'assistant',
-      text: 'Greetings. I am the Tidemark Marine Intelligence Assistant, grounded directly in the Tamil Nadu coastal telemetry, landings, and stock assessments. Ask me any plain-language inquiry regarding vessel compliance, biomass limits, harbour forecasts, or blue economic indicators.',
-      provenance: 'Tidemark Observatory Synthetic Knowledge Base (Oct 2026)',
+      text: 'Greetings. I am the AquaGov Marine Intelligence Assistant, grounded directly in the Tamil Nadu coastal telemetry, landings, and stock assessments. Ask me any plain-language inquiry regarding vessel compliance, biomass limits, harbour forecasts, or blue economic indicators.',
+      provenance: 'AquaGov Observatory Synthetic Knowledge Base (Oct 2026)',
     },
   ],
   isAssistantLoading: false,
@@ -313,7 +313,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         }
       }
       try {
-        sessionStorage.setItem('tidemark_session_nav', JSON.stringify(normalizedTarget));
+        sessionStorage.setItem('aquagov_session_nav', JSON.stringify(normalizedTarget));
       } catch {
         // ignore
       }
@@ -329,7 +329,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       initialTarget = parseNavigationHash(window.location.hash);
     } else {
       try {
-        const stored = sessionStorage.getItem('tidemark_session_nav');
+        const stored = sessionStorage.getItem('aquagov_session_nav');
         if (stored) {
           initialTarget = JSON.parse(stored);
         }
@@ -394,7 +394,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       role === 'user' ? 'community' : role === 'official' ? 'officials' : 'analyst';
 
     const newAudit = createAuditEvent(
-      resolvedUser?.emailOrPhone || 'user@tidemark.gov.in',
+      resolvedUser?.emailOrPhone || 'user@aquagov.gov.in',
       role,
       'USER_SIGN_IN',
       'UserSession',
@@ -425,7 +425,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const publicUser: UserAccount = {
       id: 'usr-guest',
       name: 'Public Viewer (Guest)',
-      emailOrPhone: 'public.viewer@tidemark.gov.in',
+      emailOrPhone: 'public.viewer@aquagov.gov.in',
       role: 'user',
       jurisdiction: 'all',
       mfaEnabled: false,
@@ -461,7 +461,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   lockAnalystConsole: () => {
     const { currentUser, auditLog } = get();
     const lockAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'analyst@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'analyst@aquagov.gov.in',
       'analyst',
       'CONSOLE_LOCK',
       'UserSession',
@@ -473,7 +473,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   unlockAnalystConsole: () => {
     const { currentUser, auditLog } = get();
     const unlockAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'analyst@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'analyst@aquagov.gov.in',
       'analyst',
       'CONSOLE_UNLOCK',
       'UserSession',
@@ -614,7 +614,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const { offlineCatchQueue, currentUser, auditLog } = get();
     const synced = offlineCatchQueue.map((item) => ({ ...item, syncStatus: 'synced' as const }));
     const newAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'fisher@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'fisher@aquagov.gov.in',
       'user',
       'SYNC_OFFLINE_CATCH_LOGS',
       'OfflineCatchQueue',
@@ -633,7 +633,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       c.id === connectorId ? { ...c, isBackfilling: true, errorRatePct: 0.0, freshnessSeconds: 0, lastSuccess: 'Just now' } : c
     );
     const newAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'analyst@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'analyst@aquagov.gov.in',
       'analyst',
       'BACKFILL_DATA_CONNECTOR',
       'Connector',
@@ -658,7 +658,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       a.id === anomalyId ? { ...a, status: resolutionType, resolutionNote: note } : a
     );
     const newAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'analyst@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'analyst@aquagov.gov.in',
       'analyst',
       resolutionType === 'resolved_override' ? 'ANOMALY_MANUAL_OVERRIDE' : 'ANOMALY_RULE_CLEANSE',
       'DataAnomaly',
@@ -682,7 +682,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         : ind
     );
     const newAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'analyst@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'analyst@aquagov.gov.in',
       'analyst',
       'METHODOLOGY_PROPOSAL_DRAFT',
       'MethodologyIndicator',
@@ -698,7 +698,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       ind.id === indicatorId ? { ...ind, status: 'published' as const } : ind
     );
     const newAudit = createAuditEvent(
-      'peer.analyst@tidemark.gov.in',
+      'peer.analyst@aquagov.gov.in',
       'analyst',
       'METHODOLOGY_PEER_APPROVAL',
       'MethodologyIndicator',
@@ -714,7 +714,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       m.id === modelId ? { ...m, version: targetVersion, driftMetric: 0.015, accuracyPct: 94.1 } : m
     );
     const newAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'analyst@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'analyst@aquagov.gov.in',
       'analyst',
       'MODEL_ROLLBACK',
       'ModelMetadata',
@@ -755,7 +755,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     // Provide an intelligent analytical response grounded in the Tamil Nadu dataset
     setTimeout(() => {
       let responseText = '';
-      let provenanceStr = 'Tidemark In-Memory Knowledge Graph & ICAR-CMFRI Stock Ledger';
+      let provenanceStr = 'AquaGov In-Memory Knowledge Graph & ICAR-CMFRI Stock Ledger';
 
       const q = query.toLowerCase();
       if (q.includes('sardine') || q.includes('biomass') || q.includes('stock')) {
@@ -769,10 +769,10 @@ export const useAppStore = create<AppState>((set, get) => ({
         provenanceStr = 'INCOIS Coastal Wave Rider Buoy Network & IMD Radar Stream';
       } else if (q.includes('bsi') || q.includes('sustainability') || q.includes('index')) {
         responseText = 'The Tamil Nadu Blue Sustainability Index (BSI) currently stands at 78.4 / 100. Biological spawning health contributes 30% weight, Sanctuary compliance 25%, Eco-gear adoption 15%, Fisher household income 15%, and Export GVA 15%. All 5 indicators are operating within acceptable thresholds, though Silver Pomfret biomass and Gulf of Mannar transponder compliance are flagged as warning zones.';
-        provenanceStr = 'Methodology Studio Schema v2.4.0 (Tidemark Indicator Engine)';
+        provenanceStr = 'Methodology Studio Schema v2.4.0 (AquaGov Indicator Engine)';
       } else {
         responseText = `Observatory query analysis: "${query}". All 6 coastal data pipelines (Satellite SST, Vessel AIS, NFDB landings, Port throughput, Wholesale market, and MoSPI GVA) are operational with a mean freshness of 14 minutes. 8 registered vessels are active in state territorial waters with 87.5% compliance. Total blue GVA for Tamil Nadu is estimated at ₹23,640 Crore across Chennai, Cuddalore, Nagapattinam, Ramanathapuram, Thoothukudi, and Kanniyakumari.`;
-        provenanceStr = 'Tidemark Cross-Pipeline Aggregator (All Jurisdictions)';
+        provenanceStr = 'AquaGov Cross-Pipeline Aggregator (All Jurisdictions)';
       }
 
       set((state) => ({
@@ -794,7 +794,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const { userAccounts, currentUser, auditLog } = get();
     const updated = userAccounts.map((u) => (u.id === userId ? { ...u, status: 'suspended' as const } : u));
     const newAudit = createAuditEvent(
-      currentUser?.emailOrPhone || 'analyst@tidemark.gov.in',
+      currentUser?.emailOrPhone || 'analyst@aquagov.gov.in',
       'analyst',
       'FORCE_SIGN_OUT_USER',
       'UserAccount',

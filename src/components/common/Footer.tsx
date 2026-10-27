@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
             Synthetic demo data
           </span>
           <span className="text-[11px]">
-            Tidemark, National Blue Economy Observatory — Tamil Nadu Pilot Jurisdiction
+            AquaGov, National Blue Economy Observatory — Tamil Nadu Pilot Jurisdiction
           </span>
         </div>
 

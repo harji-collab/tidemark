@@ -3,7 +3,7 @@ export type Language = 'en' | 'ta' | 'hi';
 export const TRANSLATIONS: Record<Language, Record<string, string>> = {
   en: {
     // Branding & Header
-    'app.name': 'Tidemark',
+    'app.name': 'AquaGov',
     'app.subtitle': 'National Blue Economy Observatory',
     'app.tagline': 'Marine resources, fisheries, coastal industries & blue economy intelligence',
     'nav.gateway': 'Gateway',

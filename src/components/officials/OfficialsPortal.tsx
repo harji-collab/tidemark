@@ -923,7 +923,7 @@ export const OfficialsPortal: React.FC = () => {
                   const url = URL.createObjectURL(blob);
                   const a = document.createElement('a');
                   a.href = url;
-                  a.download = 'tidemark-blue-economy-indicators.csv';
+                  a.download = 'aquagov-blue-economy-indicators.csv';
                   a.click();
                 }}
                 className="px-3 py-1.5 bg-[#0E2A3C] border border-[#1E445C] hover:bg-[#14354B] text-xs font-semibold text-white rounded-[2px] flex items-center gap-1.5"

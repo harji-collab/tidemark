@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
             type="button"
             onClick={() => navigate({ portal: 'gateway' })}
             className="flex items-center gap-2.5 text-left group focus:outline-none"
-            title="Return to Tidemark Observatory Gateway"
+            title="Return to AquaGov Observatory Gateway"
           >
             <div className="w-8 h-8 rounded-[2px] bg-[#0E2230] dark:bg-[#1E445C] border border-[#BFE6DF]/40 text-[#BFE6DF] flex items-center justify-center shadow-sm select-none group-hover:border-[#BFE6DF] transition-colors">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

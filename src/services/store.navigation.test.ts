@@ -154,7 +154,7 @@ test('Authentication: Force sign-out terminates active session', () => {
   const testUser = {
     id: 'usr-target-session',
     name: 'Test Session',
-    emailOrPhone: 'session.test@tidemark.gov.in',
+    emailOrPhone: 'session.test@aquagov.gov.in',
     role: 'user' as const,
     jurisdiction: 'all' as const,
     mfaEnabled: false,

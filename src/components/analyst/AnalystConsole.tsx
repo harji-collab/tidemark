@@ -163,7 +163,7 @@ export const AnalystConsole: React.FC = () => {
             <div className="p-3 bg-[#0B2438] border border-[#123149] rounded-[2px] text-xs font-mono text-left space-y-1">
               <span className="text-[10px] text-[#5D798B] block uppercase">Active Workstation Credential</span>
               <p className="text-white font-bold">{currentUser?.name || 'Lead Marine Data Steward'}</p>
-              <p className="text-[11px] text-[#38BDF8]">{currentUser?.emailOrPhone || 'ananya.deshmukh@tidemark.gov.in'}</p>
+              <p className="text-[11px] text-[#38BDF8]">{currentUser?.emailOrPhone || 'ananya.deshmukh@aquagov.gov.in'}</p>
             </div>
 
             <div className="space-y-2 pt-2">
@@ -317,7 +317,7 @@ export const AnalystConsole: React.FC = () => {
           >
             <span className="flex items-center gap-2">
               <Bot className="w-3.5 h-3.5 text-[#38BDF8]" />
-              8. Tidemark Assistant
+              8. AquaGov Assistant
             </span>
             <span className="text-[10px] text-[#38BDF8]">AI Grounded</span>
           </button>
@@ -707,7 +707,7 @@ export const AnalystConsole: React.FC = () => {
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = 'tidemark-immutable-audit-log.csv';
+                    a.download = 'aquagov-immutable-audit-log.csv';
                     a.click();
                   }}
                   className="px-3 py-1 bg-[#123149] hover:bg-[#184263] text-xs font-semibold text-[#38BDF8] rounded flex items-center gap-1.5"
@@ -774,14 +774,14 @@ export const AnalystConsole: React.FC = () => {
             </div>
           )}
 
-          {/* Screen 8: TIDEMARK ASSISTANT */}
+          {/* Screen 8: AQUAGOV ASSISTANT */}
           {activeAnalystTab === 'assistant' && (
             <div className="space-y-4 animate-in fade-in duration-150 h-full flex flex-col">
               <div className="border-b border-[#123149] pb-2">
                 <div className="flex items-center gap-2">
                   <Bot className="w-4 h-4 text-[#38BDF8]" />
                   <h2 className="font-mono text-base font-bold text-white uppercase">
-                    Tidemark Marine Intelligence Assistant
+                    AquaGov Marine Intelligence Assistant
                   </h2>
                 </div>
                 <p className="text-xs text-[#8DA8BA]">
@@ -802,7 +802,7 @@ export const AnalystConsole: React.FC = () => {
                   >
                     <div className="flex justify-between items-center text-[10px] opacity-75">
                       <span className="uppercase font-bold">
-                        {msg.role === 'assistant' ? 'Tidemark Observatory Agent' : 'Analyst'}
+                        {msg.role === 'assistant' ? 'AquaGov Observatory Agent' : 'Analyst'}
                       </span>
                     </div>
                     <p className="leading-relaxed whitespace-pre-wrap">{msg.text}</p>

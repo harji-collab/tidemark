@@ -20,7 +20,7 @@ export const Gateway: React.FC = () => {
   const [officialEmail, setOfficialEmail] = useState('rajendran.ias@tnfisheries.gov.in');
   const [officialMfa, setOfficialMfa] = useState('NIC-TN-SSO-89211');
 
-  const [analystEmail, setAnalystEmail] = useState('ananya.deshmukh@tidemark.gov.in');
+  const [analystEmail, setAnalystEmail] = useState('ananya.deshmukh@aquagov.gov.in');
   const [analystPass, setAnalystPass] = useState('••••••••••••');
   const [analystTotp, setAnalystTotp] = useState('892411');
   const [hardwareKeyTouched, setHardwareKeyTouched] = useState(false);

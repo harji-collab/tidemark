@@ -849,7 +849,7 @@ export const INITIAL_AUDIT_LOG: AuditEvent[] = [
   {
     id: 'aud-seed-03',
     timestamp: '2026-10-24 17:20:10 IST',
-    actorEmail: 'analyst.steward@tidemark.gov.in',
+    actorEmail: 'analyst.steward@aquagov.gov.in',
     actorRole: 'analyst',
     action: 'METHODOLOGY_UPDATE_DRAFT',
     entityType: 'MethodologyIndicator',
@@ -929,7 +929,7 @@ export const USER_ACCOUNTS: UserAccount[] = [
   {
     id: 'usr-4',
     name: 'Ananya Deshmukh (Lead Marine Data Steward)',
-    emailOrPhone: 'ananya.deshmukh@tidemark.gov.in',
+    emailOrPhone: 'ananya.deshmukh@aquagov.gov.in',
     role: 'analyst',
     jurisdiction: 'all',
     mfaEnabled: true,
